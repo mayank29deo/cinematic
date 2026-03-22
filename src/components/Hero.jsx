@@ -286,7 +286,7 @@ export default function Hero() {
               { n: '4', label: 'Roles' },
               { n: '19+', label: 'Projects' },
               { n: '400+', label: 'DSA Solved' },
-              { n: '96%ile', label: 'JEE' },
+              { n: '98%ile', label: 'JEE' },
             ].map(({ n, label }) => (
               <div key={label} className="hero-stat">
                 <span className="hero-stat-n">{n}</span>
