@@ -1,0 +1,130 @@
+.skills-section {
+  padding: 8rem 0;
+  background: var(--dark);
+  border-top: 1px solid rgba(255,255,255,0.03);
+}
+
+.skills-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.skills-title {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+}
+
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 5rem;
+  align-items: start;
+}
+
+/* Bars */
+.skills-bars-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.25em;
+  color: var(--gray);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.skill-bar-item {
+  margin-bottom: 1.4rem;
+}
+
+.skill-bar-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.5rem;
+}
+
+.skill-bar-name {
+  font-size: 0.82rem;
+  color: var(--white);
+  font-weight: 400;
+}
+
+.skill-bar-pct {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+}
+
+.skill-bar-track {
+  height: 2px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--gold-dim), var(--gold));
+  border-radius: 1px;
+}
+
+/* Chip groups */
+.skills-chips {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.skill-group-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.skill-group-icon {
+  color: var(--gold);
+  font-size: 0.7rem;
+}
+
+.skill-group-name {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.skill-chips-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.skill-chip {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.08em;
+  padding: 0.3rem 0.7rem;
+  background: rgba(201,168,76,0.05);
+  border: 1px solid rgba(201,168,76,0.15);
+  color: var(--white);
+  transition: all 0.3s;
+}
+
+.skill-chip:hover {
+  background: rgba(201,168,76,0.12);
+  border-color: rgba(201,168,76,0.4);
+  color: var(--gold-light);
+}
+
+@media (max-width: 900px) {
+  .skills-layout { grid-template-columns: 1fr; gap: 3rem; }
+  .skills-chips { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 600px) {
+  .skills-section { padding: 5rem 0; }
+  .skills-container { padding: 0 1.5rem; }
+  .skills-chips { grid-template-columns: 1fr; }
+}

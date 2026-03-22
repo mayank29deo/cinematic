@@ -1,0 +1,678 @@
+/* ═══════════════════════════════════════════════════════
+   HERO — Cinematic Command Center
+═══════════════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  position: relative;
+  background: var(--black);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Canvas */
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Spotlight */
+.hero-spotlight {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Giant BG text */
+.hero-bg-text {
+  position: absolute;
+  right: -2%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 22vw, 22rem);
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.013);
+  pointer-events: none;
+  user-select: none;
+  line-height: 1;
+  z-index: 0;
+  will-change: transform;
+}
+
+/* Vignette — stronger on right half */
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 50% 80% at 20% 50%,
+    transparent 20%,
+    rgba(5,5,5,0.8) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ─── Main 2-column grid ──────────────────────────────── */
+.hero-grid {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 44% 56%;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem 3.5rem; /* bottom = ticker height */
+  will-change: transform;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* ─── LEFT panel ──────────────────────────────────────── */
+.hero-left {
+  padding: 9rem 2rem 4rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Label */
+.hero-label {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.57rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 2rem;
+}
+
+.hero-label-line {
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+/* Name */
+.hero-title-wrap {
+  margin-bottom: 1.4rem;
+  perspective: 800px;
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-size: clamp(3.8rem, 9vw, 9rem);
+  line-height: 0.85;
+  letter-spacing: 0.04em;
+  color: var(--white);
+  display: block;
+}
+
+.hero-letter {
+  display: inline-block;
+  transform-origin: bottom center;
+  will-change: transform, opacity;
+}
+
+.hero-letter--gold { color: var(--gold); }
+
+/* Roles */
+.hero-roles {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.hero-role-word {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 1.8vw, 1.35rem);
+  letter-spacing: 0.1em;
+  color: var(--white);
+  opacity: 0.8;
+}
+
+.hero-role-dot {
+  font-family: var(--font-display);
+  font-size: clamp(0.9rem, 1.8vw, 1.35rem);
+  color: var(--gold);
+  opacity: 0.55;
+}
+
+.hero-role-dash {
+  font-family: var(--font-display);
+  font-size: clamp(0.8rem, 1.6vw, 1.2rem);
+  color: var(--gold);
+  opacity: 0.45;
+}
+
+/* Stats row */
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.2rem;
+  padding-bottom: 2.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.hero-stat-n {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  color: var(--white);
+  line-height: 1;
+}
+
+.hero-stat-l {
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.2em;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+
+/* CTAs */
+.hero-cta-row {
+  display: flex;
+  gap: 0.85rem;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.hero-cta {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.8rem 1.7rem;
+  transition: all 0.3s;
+  cursor: none;
+  display: inline-block;
+}
+
+.hero-cta--primary {
+  background: var(--gold);
+  color: var(--black);
+}
+
+.hero-cta--primary:hover {
+  opacity: 0.88;
+  transform: translateY(-2px);
+}
+
+.hero-cta--ghost {
+  border: 1px solid rgba(201,168,76,0.35);
+  color: var(--gold);
+}
+
+.hero-cta--ghost:hover {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.06);
+  transform: translateY(-2px);
+}
+
+/* Section nav pills */
+.hero-nav-pills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-nav-pill {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255,255,255,0.28);
+  border: 1px solid rgba(255,255,255,0.07);
+  padding: 0.28rem 0.75rem;
+  border-radius: 2px;
+  transition: all 0.3s;
+  cursor: none;
+}
+
+.hero-nav-pill:hover {
+  color: var(--gold);
+  border-color: rgba(201,168,76,0.3);
+  background: rgba(201,168,76,0.04);
+}
+
+/* ─── RIGHT panel — Cinematic highlight reel ──────────── */
+.hero-right {
+  position: relative;
+  height: 100vh;
+  max-height: 820px;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem 5rem;
+}
+
+/* Film perforations */
+.hero-perfs {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 2rem 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-perfs--left  { left: 0; }
+.hero-perfs--right { right: 0; }
+
+.hero-perf {
+  width: 10px;
+  height: 16px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 2px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+/* Main reel panel */
+.hero-reel-panel {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.018);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  backdrop-filter: blur(2px);
+}
+
+/* Progress track */
+.hero-reel-progress-track {
+  display: flex;
+  gap: 3px;
+  padding: 0.55rem 0.8rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  flex-shrink: 0;
+}
+
+.hero-reel-seg {
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 1px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background 0.3s;
+  position: relative;
+}
+
+.hero-reel-seg--done {
+  background: rgba(255,255,255,0.25);
+}
+
+.hero-reel-seg--active::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--seg-accent);
+  transform-origin: left;
+  animation: segFill var(--seg-dur) linear forwards;
+}
+
+@keyframes segFill {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Stage — where the card lives */
+.hero-reel-stage {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── The cycling card ────────────────────────────────── */
+.hero-reel-card {
+  position: absolute;
+  inset: 0;
+  padding: 1.4rem 1.6rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  will-change: transform, opacity, filter;
+}
+
+/* Type row */
+.hero-reel-type-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.hero-reel-type {
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.hero-reel-badge {
+  font-family: var(--font-mono);
+  font-size: 0.44rem;
+  letter-spacing: 0.18em;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+}
+
+/* Title */
+.hero-reel-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  letter-spacing: 0.06em;
+  color: var(--white);
+  line-height: 0.9;
+  margin: 0;
+}
+
+.hero-reel-subtitle {
+  font-size: 0.78rem;
+  color: var(--gray-light);
+  font-weight: 300;
+  line-height: 1.5;
+  margin-top: -0.2rem;
+}
+
+/* Mockup window */
+.hero-reel-mockup-wrap {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.2);
+}
+
+.hero-reel-mockup-inner {
+  width: 100%;
+  zoom: 0.62;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.hero-reel-mockup-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 3px;
+}
+
+/* Impact text */
+.hero-reel-impact {
+  font-size: 0.75rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.5);
+  font-weight: 300;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Tags + stat */
+.hero-reel-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  align-items: center;
+}
+
+.hero-reel-tag {
+  font-family: var(--font-mono);
+  font-size: 0.44rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid;
+  padding: 0.18rem 0.55rem;
+  border-radius: 2px;
+}
+
+.hero-reel-stat-pill {
+  font-family: var(--font-mono);
+  font-size: 0.46rem;
+  letter-spacing: 0.08em;
+  border: 1px solid;
+  padding: 0.2rem 0.65rem;
+  border-radius: 2px;
+  font-weight: 600;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.hero-reel-stat-sub {
+  opacity: 0.65;
+  font-weight: 400;
+}
+
+/* ─── Bottom controls ─────────────────────────────────── */
+.hero-reel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1.6rem 0.8rem;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  flex-shrink: 0;
+}
+
+.hero-reel-dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.hero-reel-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.18);
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.hero-reel-dot.active {
+  width: 18px;
+  border-radius: 3px;
+}
+
+.hero-reel-dot:hover {
+  background: rgba(255,255,255,0.38);
+}
+
+/* Counter */
+.hero-reel-counter {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.2);
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.hero-reel-counter-cur {
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.hero-reel-counter-sep { opacity: 0.4; }
+
+/* Corner decorations */
+.hero-reel-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-style: solid;
+  border-width: 1px;
+  z-index: 3;
+  pointer-events: none;
+  transition: border-color 0.6s;
+}
+
+.hero-reel-corner--tl {
+  top: 1rem;
+  left: 1.2rem;
+  border-bottom: none;
+  border-right: none;
+}
+
+.hero-reel-corner--br {
+  bottom: 1rem;
+  right: 1.2rem;
+  border-top: none;
+  border-left: none;
+}
+
+/* Ambient glow */
+.hero-reel-ambient {
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  transition: background 0.8s ease;
+  border-radius: 50%;
+  filter: blur(40px);
+}
+
+/* ─── Scroll indicator ────────────────────────────────── */
+.hero-scroll {
+  position: absolute;
+  bottom: 4.5rem;
+  left: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  z-index: 4;
+}
+
+.hero-scroll-line {
+  width: 1px;
+  height: 46px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2.2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(1); }
+  50% { opacity: 1; transform: scaleY(1.1); }
+}
+
+.hero-scroll span {
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.32em;
+  color: var(--gray);
+  writing-mode: vertical-lr;
+  text-transform: uppercase;
+}
+
+/* ─── Ticker ──────────────────────────────────────────── */
+.hero-ticker-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2.6rem;
+  overflow: hidden;
+  z-index: 4;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  background: rgba(5,5,5,0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+}
+
+.hero-ticker-track {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: tickerScroll 38s linear infinite;
+}
+
+.hero-ticker-text {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(201,168,76,0.5);
+  flex-shrink: 0;
+}
+
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ─── Responsive ──────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+    padding-bottom: 4rem;
+  }
+
+  .hero-left {
+    padding: 8rem 2rem 2rem;
+  }
+
+  .hero-right {
+    height: 75vw;
+    max-height: 500px;
+    min-height: 400px;
+    padding: 1rem 1.5rem 3rem;
+  }
+
+  .hero-perfs { display: none; }
+}
+
+@media (max-width: 768px) {
+  .hero-name { font-size: clamp(3rem, 14vw, 5.5rem); }
+  .hero-scroll { display: none; }
+  .hero-stats { gap: 1.2rem; }
+  .hero-bg-text { font-size: 40vw; }
+  .hero-right { height: 85vw; min-height: 360px; }
+  .hero-reel-mockup-inner { zoom: 0.5; }
+}
+
+@media (max-width: 480px) {
+  .hero-left { padding: 7rem 1.5rem 1.5rem; }
+  .hero-right { padding: 0.5rem 1rem 3rem; }
+  .hero-cta-row { flex-direction: column; }
+  .hero-cta { text-align: center; }
+}

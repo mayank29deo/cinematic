@@ -1,0 +1,257 @@
+/* ═══════════════════════════════════════════════════════
+   INTRO — Cinematic opening sequence
+═══════════════════════════════════════════════════════ */
+.intro {
+  position: fixed;
+  inset: 0;
+  background: #050505;
+  z-index: 99990;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.intro-scanlines {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 2px,
+    rgba(255,255,255,0.01) 2px,
+    rgba(255,255,255,0.01) 4px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Corner brackets */
+.intro-corner {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  opacity: 0.35;
+  z-index: 2;
+}
+.intro-corner--tl { top: 24px;    left: 24px;  border-top: 1px solid var(--gold); border-left:  1px solid var(--gold); }
+.intro-corner--tr { top: 24px;    right: 24px; border-top: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+.intro-corner--bl { bottom: 24px; left: 24px;  border-bottom: 1px solid var(--gold); border-left:  1px solid var(--gold); }
+.intro-corner--br { bottom: 24px; right: 24px; border-bottom: 1px solid var(--gold); border-right: 1px solid var(--gold); }
+
+/* ── PHASE 1: Identity lines ──────────────────────── */
+.intro-identity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 max(4rem, 10vw);
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.intro-id-tag {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  opacity: 0.9;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+}
+
+.intro-id-tag-line {
+  width: 36px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.intro-id-line {
+  font-family: var(--font-display);
+  line-height: 0.88;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.15rem;
+}
+
+.intro-id-line--1 {
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  color: var(--white);
+}
+
+.intro-id-line--2 {
+  font-size: clamp(3.5rem, 10vw, 9rem);
+  color: var(--gold);
+}
+
+.intro-id-line--3 {
+  font-size: clamp(2rem, 5.5vw, 5rem);
+  color: rgba(255,255,255,0.28);
+  margin-top: 0.4rem;
+}
+
+.intro-id-sub {
+  font-size: clamp(0.78rem, 1.4vw, 0.95rem);
+  color: var(--gray-light);
+  font-style: italic;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  line-height: 1.65;
+  margin-top: 2.5rem;
+  max-width: 520px;
+  border-left: 2px solid rgba(201,168,76,0.4);
+  padding-left: 1.2rem;
+}
+
+/* ── PHASE 2: Name reveal ─────────────────────────── */
+.intro-name-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.intro-glitch-flash {
+  position: fixed;
+  inset: 0;
+  background: rgba(201, 168, 76, 0.15);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.intro-presenting {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: rgba(201, 168, 76, 0.65);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5em;
+}
+
+/* MASSIVE name */
+.intro-name-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.82;
+  margin-bottom: 0;
+}
+
+.intro-name-first {
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 17vw, 16rem);
+  letter-spacing: 0.06em;
+  color: var(--white);
+  line-height: 0.85;
+  will-change: transform, opacity, filter;
+}
+
+.intro-name-last {
+  font-family: var(--font-display);
+  font-size: clamp(5.5rem, 17vw, 16rem);
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  line-height: 0.85;
+  will-change: transform, opacity, filter;
+}
+
+/* Gold rule */
+.intro-name-rule {
+  width: min(340px, 60vw);
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+  margin: 2rem 0 1.8rem;
+  transform-origin: center;
+}
+
+/* Tagline */
+.intro-tagline {
+  font-size: clamp(0.72rem, 1.35vw, 0.92rem);
+  color: var(--gray-light);
+  line-height: 1.78;
+  text-align: center;
+  max-width: 560px;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+}
+
+.intro-tagline em {
+  color: var(--gold);
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* Meta row */
+.intro-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-top: 1.8rem;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.22);
+  text-transform: uppercase;
+}
+
+.intro-meta-sep {
+  color: var(--gold);
+  opacity: 0.35;
+  font-size: 0.5rem;
+}
+
+/* ── Bottom strip ─────────────────────────────────── */
+.intro-bottom {
+  position: absolute;
+  bottom: 28px;
+  left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+  z-index: 2;
+}
+
+.intro-bottom-text {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.28em;
+  color: rgba(201, 168, 76, 0.35);
+  text-transform: uppercase;
+}
+
+/* ── Skip button ─────────────────────────────────── */
+.intro-skip {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  border: 1px solid rgba(201,168,76,0.25);
+  color: rgba(201,168,76,0.5);
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.3em;
+  padding: 0.45rem 1.2rem;
+  text-transform: uppercase;
+  transition: all 0.3s;
+  z-index: 3;
+}
+
+.intro-skip:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  background: rgba(201,168,76,0.04);
+}
+
+@media (max-width: 768px) {
+  .intro-identity { padding: 0 1.5rem; }
+  .intro-id-line--1, .intro-id-line--2 { font-size: clamp(2.8rem, 12vw, 5rem); }
+  .intro-id-line--3 { font-size: clamp(1.6rem, 7vw, 3rem); }
+}

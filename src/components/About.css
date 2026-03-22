@@ -1,0 +1,243 @@
+/* ═══════════════════════════════════════════════════════
+   ABOUT — Enhanced cinematic
+═══════════════════════════════════════════════════════ */
+.about {
+  padding: 10rem 0 8rem;
+  background: var(--black);
+  border-top: 1px solid rgba(255,255,255,0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Giant chapter title background ────────────────── */
+.about-bg-chapter {
+  position: absolute;
+  top: -0.1em;
+  left: -0.02em;
+  font-family: var(--font-display);
+  font-size: clamp(8rem, 20vw, 18rem);
+  letter-spacing: -0.02em;
+  color: rgba(255,255,255,0.013);
+  user-select: none;
+  pointer-events: none;
+  line-height: 1;
+  z-index: 0;
+  white-space: nowrap;
+}
+
+/* ─── Layout ─────────────────────────────────────────── */
+.about-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+
+.about-title {
+  font-size: clamp(3rem, 7vw, 6.5rem);
+  margin-bottom: 0;
+}
+
+.about-body {
+  font-size: 0.92rem;
+  line-height: 1.88;
+  color: var(--gray-light);
+  margin-bottom: 1.2rem;
+  font-weight: 300;
+}
+
+/* ─── Pullout quote ─────────────────────────────────── */
+.about-quote {
+  position: relative;
+  margin: 1.8rem 0 2.2rem;
+  padding: 1.6rem 1.8rem 1.6rem 3.5rem;
+  background: linear-gradient(
+    135deg,
+    rgba(201,168,76,0.04) 0%,
+    rgba(201,168,76,0.015) 100%
+  );
+  border-left: none;
+  overflow: visible;
+}
+
+/* Gold accent line on left */
+.about-quote::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+}
+
+.about-quote-mark {
+  position: absolute;
+  top: -0.5rem;
+  left: 0.75rem;
+  font-family: var(--font-display);
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.22;
+  user-select: none;
+  font-weight: 700;
+}
+
+.about-quote-text {
+  font-size: 0.95rem;
+  line-height: 1.82;
+  color: var(--white);
+  font-weight: 300;
+  position: relative;
+  z-index: 1;
+}
+
+.about-quote-text em {
+  font-style: italic;
+  color: var(--gold);
+  font-weight: 400;
+}
+
+.about-quote-accent {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(to left, var(--gold), transparent);
+  opacity: 0.4;
+}
+
+/* ─── Animated stats ─────────────────────────────────── */
+.about-stats-row {
+  display: flex;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  padding: 1.5rem 0;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.about-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.about-stat-n {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  color: var(--gold);
+  line-height: 1;
+  letter-spacing: 0.02em;
+}
+
+.about-stat-l {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.22em;
+  color: var(--gray);
+  text-transform: uppercase;
+}
+
+/* ─── Contact row ────────────────────────────────────── */
+.about-contact-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.about-link {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  text-decoration: none;
+  transition: opacity 0.3s;
+}
+
+.about-link:hover { opacity: 0.7; }
+
+.about-link-sep {
+  color: var(--gray);
+  font-size: 0.7rem;
+}
+
+/* ─── Fact cards ─────────────────────────────────────── */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.about-card {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  padding: 1.4rem;
+  background: var(--dark2);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-left: 2px solid rgba(201,168,76,0.2);
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
+}
+
+.about-card:hover {
+  border-left-color: var(--gold);
+  background: rgba(201,168,76,0.03);
+  transform: translateX(4px);
+}
+
+.about-card-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+  filter: grayscale(0.15);
+}
+
+.about-card-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.4rem;
+}
+
+.about-card-text {
+  font-size: 0.82rem;
+  line-height: 1.72;
+  color: var(--gray-light);
+  font-weight: 300;
+}
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 900px) {
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  .about-bg-chapter {
+    font-size: 30vw;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    padding: 6rem 0 5rem;
+  }
+  .about-container {
+    padding: 0 1.5rem;
+  }
+  .about-stats-row {
+    gap: 1.5rem;
+  }
+}
