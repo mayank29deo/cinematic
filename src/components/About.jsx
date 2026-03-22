@@ -135,7 +135,7 @@ export default function About() {
           >
             <div className="about-quote-mark" aria-hidden="true">"</div>
             <p className="about-quote-text">
-              96 percentile in JEE. Vice Captain of Cricket. Head of Operations. State Scholar.
+              98 percentile in JEE. Vice Captain of Cricket. Head of Operations. State Scholar.
               I don't just write code —<br />
               <em>I lead, I analyse, I build.</em>
             </p>

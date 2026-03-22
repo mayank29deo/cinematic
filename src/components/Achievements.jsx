@@ -5,9 +5,9 @@ import './Achievements.css'
 const items = [
   {
     icon: '🏆',
-    title: '96 Percentile — JEE 2022',
+    title: '98 Percentile — JEE 2022',
     subtitle: 'State Govt. Jharkhand Scholarship',
-    desc: 'Placed in the top 4% of 1.2 million engineering aspirants across India, earning a state-level scholarship to pursue engineering at BIT Mesra.',
+    desc: 'Placed in the top 2% of 1.2 million engineering aspirants across India, earning a state-level scholarship to pursue engineering at BIT Mesra.',
     category: 'Academic',
   },
   {

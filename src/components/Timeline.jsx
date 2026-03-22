@@ -104,7 +104,7 @@ const education = [
     location: 'Ranchi, Jharkhand',
     period: '2022 — 2026',
     grade: 'CGPA: 7.21',
-    highlights: ['JEE 96%ile · State Scholar', 'DD Robocon 2024 Team', 'Research Intern Lead', 'Cricket Vice Captain'],
+    highlights: ['JEE 98%ile · State Scholar', 'DD Robocon 2024 Team', 'Research Intern Lead', 'Cricket Vice Captain'],
   },
   {
     degree: 'Higher Secondary (Science)',

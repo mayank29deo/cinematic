@@ -89,7 +89,7 @@ function LetterReveal({ text, className, baseDelay = 0, gold = false }) {
 
 /* ─── Ticker ─────────────────────────────────────────────────────── */
 const TICKER_ITEMS =
-  'React.js ◆ Python ◆ Power BI ◆ TensorFlow.js ◆ PACKD ◆ KisanSaathi ◆ Stockd ◆ 400+ DSA ◆ JEE 96%ile ◆ BIT Mesra ◆ SAIL Intern ◆ FastAPI ◆ Pandas ◆ Framer Motion ◆ GSAP ◆ TypeScript ◆ '
+  'React.js ◆ Python ◆ Power BI ◆ TensorFlow.js ◆ PACKD ◆ KisanSaathi ◆ Stockd ◆ 400+ DSA ◆ JEE 98%ile ◆ BIT Mesra ◆ SAIL Intern ◆ FastAPI ◆ Pandas ◆ Framer Motion ◆ GSAP ◆ TypeScript ◆ '
 
 /* ─── Highlight reel data ────────────────────────────────────────── */
 const HIGHLIGHTS = [
